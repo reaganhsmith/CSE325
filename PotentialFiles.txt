@@ -1,0 +1,41 @@
+Here are a list of potiential files we will need for this app.
+
+for .cs models we will need:
+    Student.cs: Defines the Student 
+    Professor.cs: Defines the Professor
+    Course.cs: Defines the Course 
+    Assignment.cs: Defines the Assignment 
+    Submission.cs: Defines the Submission 
+
+for .cs Db:
+    DataStorage.cs
+
+for .cs controllers:
+    AccountController.cs
+    CourseController.cs
+    AssignmentController.cs
+    HomeController.cs
+for .cshtml views:
+    Share
+        _Layout.cshtml
+        _Validation.cshtml
+        _LoginPartial.cshtml
+    Account
+        Login.cshtml
+        Register.cshtml (optional)
+    Courses
+        Index.cshtml
+        Details.cshtml
+    Assignments
+        Index.cshtml
+        Submit.cshtml
+    Home
+        Index.cshtml
+for .css/java:
+    site.css
+    site.js
+for config files:
+    appsettings.json
+    Startup.cs
+    Data.json
+
