@@ -2,10 +2,9 @@ Here are a list of potiential files we will need for this app.
 
 for .cs models we will need:
     Student.cs
-    Professor.cs
     Course.cs
-    Assignment.cs
-    Submission.cs
+    Login.cs
+    Register.cs
 
 for .cs Db:
     DataStorage.cs
