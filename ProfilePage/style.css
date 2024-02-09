@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.student-profile {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.personal-info {
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.personal-info h2 {
+    color: #013a63;
+    margin-bottom: 15px;
+}
+
+.personal-info p {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.class-schedule {
+    padding: 20px;
+}
+
+.class-schedule h3 {
+    color: #013a63;
+}
+
+.class-schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.class-schedule th, .class-schedule td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.class-schedule th {
+    background-color: #013a63;
+    color: #ffffff;
+}
+
+.class-schedule td {
+    background-color: #ffffff;
+}
+
+.profile-header {
+    background-color: #013a63;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+}
