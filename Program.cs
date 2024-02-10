@@ -1,4 +1,4 @@
-using Education_Portal.Components;
+using EducationPortal.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
