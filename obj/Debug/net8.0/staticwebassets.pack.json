@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/reagan/Desktop/NET APP/EducationApp/obj/Debug/net8.0/scopedcss/projectbundle/EducationApp.bundle.scp.css",
+      "PackagePath": "staticwebassets/EducationApp.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/reagan/Desktop/NET APP/EducationApp/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/reagan/Desktop/NET APP/EducationApp/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/reagan/Desktop/NET APP/EducationApp/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/reagan/Desktop/NET APP/EducationApp/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.EducationApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.EducationApp.props",
+      "PackagePath": "build\\EducationApp.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.EducationApp.props",
+      "PackagePath": "buildMultiTargeting\\EducationApp.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.EducationApp.props",
+      "PackagePath": "buildTransitive\\EducationApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
