@@ -34,7 +34,7 @@ body {
 }
 
 .personal-info h2 {
-    color: #013a63;
+    color: #3e76a6;
     margin-bottom: 15px;
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .class-schedule h3 {
-    color: #013a63;
+    color: #3e76a6;
 }
 
 .class-schedule table {
@@ -65,7 +65,7 @@ body {
 }
 
 .class-schedule th {
-    background-color: #013a63;
+    background-color: #3e76a6;
     color: #ffffff;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 .profile-header {
-    background-color: #013a63;
+    background-color: #3e76a6;
     color: #ffffff;
     padding: 10px;
     border-radius: 8px;
