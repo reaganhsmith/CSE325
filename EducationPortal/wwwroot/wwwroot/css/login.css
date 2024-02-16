@@ -1,0 +1,13 @@
+
+
+.regForm{
+    padding: 2rem;
+    background-color: #1c4160;
+    margin-right: -1rem;
+    color: white;
+    z-index: 100;
+}
+
+.registerForm{
+    margin: 0 5rem;
+}

@@ -1,0 +1,62 @@
+@page "/register"
+<link href="wwwroot\css/login.css" rel="stylesheet" />
+
+
+
+<form class="registerForm" >
+    
+
+    
+    <div class="row ">
+    <div class="col-md-6 regForm">
+        <h3 class="text-center">Register</h3>
+  <div class="row mb-4">
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="fName" class="form-control" />
+        <label class="form-label" for="fName">First name</label>
+      </div>
+    </div>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="lName" class="form-control" />
+        <label class="form-label" for="lName">Last name</label>
+      </div>
+    </div>
+  </div>
+
+ <div data-mdb-input-init class="form-outline mb-4">
+    <input type="date" id="dob" class="form-control" />
+    <label class="form-label" for="dob">Birthday</label>
+  </div>
+
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="email" id="email" class="form-control" />
+    <label class="form-label" for="email">Email address</label>
+  </div>
+
+
+  <div class="row mb-4">
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="password" id="password" class="form-control" />
+        <label class="form-label" for="password">Password</label>
+      </div>
+    </div>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="password" id="confirmPass" class="form-control" />
+        <label class="form-label" for="confirmPass">Confirm Password</label>
+      </div>
+    </div>
+  </div>
+
+
+  <button data-mdb-ripple-init type="button" class="btn btn-block mb-4 btn-success">Register</button>
+</div>
+
+<div class="col-md-6">
+    <img src="../images/School.png" class="" style="height: 100%; width:100%; object-fit: cover">
+</div>
+</div>
+</form>
