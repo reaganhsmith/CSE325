@@ -9,7 +9,7 @@ main {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, #013a63 65%, #3e76a6);
+    background-image: linear-gradient(180deg, #3e76a6, #75a4cd);
 }
 
 .top-row {
@@ -35,6 +35,8 @@ main {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+
 
 @media (max-width: 640.98px) {
     .top-row {
@@ -94,3 +96,4 @@ main {
         right: 0.75rem;
         top: 0.5rem;
     }
+
