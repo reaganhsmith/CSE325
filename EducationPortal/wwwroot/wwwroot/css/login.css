@@ -11,3 +11,21 @@
 .registerForm{
     margin: 0 5rem;
 }
+
+.loginForm{
+    display: flex;
+    justify-content: center;
+}
+
+form a{
+    color: white;
+}
+form a:hover{
+    color: #75a4cd;
+}
+
+hr{
+    border: 2px solid #75a4cd;
+}
+
+
