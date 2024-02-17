@@ -79,3 +79,15 @@ body {
     padding: 10px;
     border-radius: 8px;
 }
+
+.personal-info h2 {
+    font-size: 24px; 
+    color: #3e76a6;
+    margin-bottom: 15px;
+}
+
+.class-schedule h3 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #3e76a6;
+}
