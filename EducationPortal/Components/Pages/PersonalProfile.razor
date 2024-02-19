@@ -1,19 +1,18 @@
 @page "/personalprofile"
 @using educationPortal.Models
 
-<link href="wwwroot\css/personalProfile.css" rel="stylesheet" />
+<link href="wwwroot\css\personalProfile.css" rel="stylesheet" />
 
-<div class="student-profile">
-    <div class="profile-header">
+<div class="container">
+    <div class="personal-info">
         <div class="profile-picture">
-            <img src="images\brentcross.jpg" alt="Student Picture">
+            <img src="images/brentcross.jpg" alt="Student Picture">
         </div>
-        <h2>Student Name: @studentName </h2>
-        <p>ID: @studentId </p>
+        <h2>@studentName</h2>
+        <p>ID: @studentId</p>
         <p>Email: @email</p>
         <p>Phone: @phone</p>
-        <p>Major: @major </p>
-
+        <p>Major: @major</p>
     </div>
     <div class="class-schedule">
         <h3>Class Schedule</h3>
