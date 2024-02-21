@@ -1,0 +1,53 @@
+﻿@page "/signup"
+@using ServerBlazorEF.Models
+@inject ServerBlazorEF.Data.StudentService studentService
+@inject NavigationManager NavManager
+
+<PageTitle>Signup</PageTitle>
+
+<link href="open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+
+<div class="container py-5">    
+    <form class="registerForm" @onsubmit="HandleValidSubmit">
+        <div class="row">
+            <div class="col-md-6  p-5 regForm" style="background-color: #1c4160;">
+                <h3 class="text-center text-white p-4">Signup</h3>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" id="FirstName" class="form-control text-black" @bind="student.FirstName" />
+                            <label class="form-label text-white" for="FirstName">First name</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" id="LastName" class="form-control text-black" @bind="student.LastName" />
+                            <label class="form-label text-white" for="LastName">Last name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="text" id="School" class="form-control text-black" @bind="student.School" />
+                    <label class="form-label text-white" for="School">School</label>
+                </div>
+
+                <button type="submit" class="btn btn-block mb-4 btn-success">Signup</button>
+            </div>
+
+            <div class="col-md-6 p-0">
+                <img src="../images/School.png" class="" style="height: 100%; width:100%; object-fit: cover">
+            </div>
+        </div>
+    </form>
+</div>
+
+@code {
+    private Student student = new Student();
+
+    private async Task HandleValidSubmit()
+    {
+        await studentService.InsertStudentAsync(student);
+        NavManager.NavigateTo("/students");
+    }
+}
