@@ -1,44 +1,71 @@
 @page "/login"
 @inject NavigationManager NavManager
+@inject ServerBlazorEF.Data.StudentService studentService
 
-<link href="wwwroot\css/login.css" rel="stylesheet" />
+<link href="wwwroot/css/login.css" rel="stylesheet" />
 
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
-            <form class="registerForm">
+            <form class="registerForm" @onsubmit="HandleLogin">
                 <div class="card p-4" style="background-color: #1c4160;">
                     <div class="card-body">
                         <h3 class="text-center mb-4 text-white">Login</h3>
                         <div class="form-group mb-4">
                             <label for="email" class="text-white">Email address</label>
-                            <input type="email" id="email" class="form-control" />
+                            <input type="email" id="email" class="form-control" @bind="email" />
                         </div>
                         <div class="form-group mb-4">
                             <label for="password" class="text-white">Password</label>
-                            <input type="password" id="password" class="form-control" />
+                            <input type="@passwordInputType" id="password" class="form-control" @bind="password" />
                         </div>
                         <div class="form-check mb-4">
-                            <input type="checkbox" id="showPassword" class="form-check-input" />
+                            <input type="checkbox" id="showPassword" class="form-check-input" @bind="showPassword" />
                             <label for="showPassword" class="form-check-label text-white">Show Password</label>
                         </div>
-                        <button data-mdb-ripple-init type="button" class="btn btn-block btn-success">Login</button>
+                        <button type="submit" data-mdb-ripple-init class="btn btn-block btn-success">Login</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 
-    @if (NavManager.Uri.Contains("?registered=true"))
+    @if (!string.IsNullOrEmpty(errorMessage))
     {
         <div class="row justify-content-center mt-3">
             <div class="col-md-6">
-                <div class="alert alert-success" role="alert">
-                    Your registration was successful! Please login now.
+                <div class="alert alert-danger" role="alert">
+                    @errorMessage
                 </div>
             </div>
         </div>
     }
 </div>
 
-@code {}
+@code {
+    private string email = "";
+    private string password = "";
+    private bool showPassword;
+    private string errorMessage = "";
+
+    private string passwordInputType => showPassword ? "text" : "password";
+
+    private async Task HandleLogin()
+    {
+        // Call the backend authentication service
+        var student = await studentService.AuthenticateAsync(email, password);
+
+        if (student != null)
+        {
+            // Authentication successful
+            // Pass the email parameter to the personalprofile page
+            NavManager.NavigateTo($"/personalprofile?email={email}");
+        }
+        else
+        {
+            // Handle failed login attempt
+            errorMessage = "Invalid email or password. Please try again.";
+        }
+    }
+
+}

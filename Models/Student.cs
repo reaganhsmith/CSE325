@@ -19,6 +19,9 @@ public class Student
     public string? LastName { get; set; }
     
     [Required]
+    public string? Email { get; set; }
+    
+    [Required]
     public string? School { get; set; }
 
     [Required]

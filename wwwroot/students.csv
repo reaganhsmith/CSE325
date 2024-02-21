@@ -1,5 +1,5 @@
-StudentId,FirstName,LastName,School,Password
-1,Tom,Max,Nursing,password1
-2,Ann,Fay,Mining,password2
-3,Joe,Sun,Nursing,password3
-4,Sue,Fox,Computing,password4
+StudentId,FirstName,LastName,School,Password,Email
+1,Tom,Max,Nursing,password1,tom@example.com
+2,Ann,Fay,Mining,password2,ann@example.com
+3,Joe,Sun,Nursing,password3, joe@example.com
+4,Sue,Fox,Computing,password4, sue@example.com

@@ -1,0 +1,38 @@
+@page "/personalprofile"
+@inject NavigationManager NavManager
+@inject ServerBlazorEF.Data.StudentService StudentService
+
+<link href="~/css/personalProfile.css" rel="stylesheet" />
+
+@if (student == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container">
+        <div class="personal-info">
+            <div class="profile-picture">
+                <img src="~/images/brentcross.jpg" alt="Student Picture">
+            </div>
+            <h2>@student.FirstName @student.LastName</h2>
+            <p>ID: @student.StudentId</p>
+            <p>School: @student.School</p>
+        </div>
+    </div>
+}
+
+@code {
+    private ServerBlazorEF.Models.Student student;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve the logged-in user's email from the query parameters
+        var uri = new Uri(NavManager.Uri);
+        var email = uri.Query.Split('=')[1];
+
+        // Fetch student information based on the logged-in user's email
+        student = await StudentService.GetStudentByEmailAsync(email);
+    }
+
+}
