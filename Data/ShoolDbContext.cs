@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
@@ -8,33 +9,42 @@ using CsvHelper.Configuration;
 using Microsoft.EntityFrameworkCore;
 using ServerBlazorEF.Models;
 
-namespace ServerBlazorEF.Data;
+namespace ServerBlazorEF.Data
+{
+    public class SchoolDbContext : DbContext
+    {
+        public DbSet<Student> Students { get; set; }
 
-public class SchoolDbContext : DbContext {
-  public DbSet<Student> Students => Set<Student>();
+        public SchoolDbContext(DbContextOptions<SchoolDbContext> options)
+            : base(options)
+        {
+        }
 
-  public SchoolDbContext(DbContextOptions<SchoolDbContext> options)
-    : base(options) { }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Student>().HasData(GetStudents());
+        }
 
-  protected override void OnModelCreating(ModelBuilder modelBuilder) {
-    base.OnModelCreating(modelBuilder);
-    modelBuilder.Entity<Student>().HasData(GetStudents());
-  }
-  
-  private static IEnumerable<Student> GetStudents() {
-    string[] p = { Directory.GetCurrentDirectory(), "wwwroot", "students.csv" };
-    var csvFilePath = Path.Combine(p);
+        private static IEnumerable<Student> GetStudents()
+        {
+            string[] p = { Directory.GetCurrentDirectory(), "wwwroot", "students.csv" };
+            var csvFilePath = Path.Combine(p);
 
-    var config = new CsvConfiguration(CultureInfo.InvariantCulture) {
-      PrepareHeaderForMatch = args => args.Header.ToLower(),
-    };
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                PrepareHeaderForMatch = args => args.Header.ToLower(),
+            };
 
-    var data = new List<Student>().AsEnumerable();
-    using (var reader = new StreamReader(csvFilePath)) {
-      using (var csvReader = new CsvReader(reader, config)) {
-        data = csvReader.GetRecords<Student>().ToList();
-      }
+            var data = new List<Student>().AsEnumerable();
+            using (var reader = new StreamReader(csvFilePath))
+            {
+                using (var csvReader = new CsvReader(reader, config))
+                {
+                    data = csvReader.GetRecords<Student>().ToList();
+                }
+            }
+            return data;
+        }
     }
-    return data;
-  }
 }
