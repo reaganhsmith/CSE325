@@ -7,7 +7,7 @@
 
 <link href="open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
 
-<div class="container py-5">
+<div class="container py-5">    
     <form class="registerForm" @onsubmit="HandleValidSubmit">
         <div class="row">
             <div class="col-md-6  p-5 regForm" style="background-color: #1c4160;">
@@ -38,19 +38,18 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                    <input type="password" id="ConfirmPassword" class="form-control text-black" @bind="student.ConfirmPassword" />
+                    <input type="password" id="ConfirmPassword" class="form-control text-black" @bind="confirmPassword" />
                     <label class="form-label text-white" for="ConfirmPassword">Confirm Password</label>
                 </div>
 
-                <button type="submit" class="btn btn-block mb-4 btn-success">Register</button>
-
-                <!-- Display error message if passwords do not match -->
                 @if (!string.IsNullOrEmpty(errorMessage))
                 {
                     <div class="alert alert-danger" role="alert">
                         @errorMessage
                     </div>
                 }
+
+                <button type="submit" class="btn btn-block mb-4 btn-success">Register</button>
             </div>
 
             <div class="col-md-6 p-0">
@@ -62,18 +61,19 @@
 
 @code {
     private Student student = new Student();
+    private string confirmPassword;
     private string errorMessage;
 
     private async Task HandleValidSubmit()
     {
-        if (student.Password != student.ConfirmPassword)
+        // Check if passwords match
+        if (student.Password != confirmPassword)
         {
-            // Passwords do not match, display an error message
+            // Set error message
             errorMessage = "Passwords do not match.";
             return;
         }
 
-        // Passwords match, proceed with registration
         await studentService.InsertStudentAsync(student);
         NavManager.NavigateTo("/login?registered=true");
     }
