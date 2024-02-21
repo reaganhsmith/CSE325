@@ -33,6 +33,11 @@
                 </div>
 
                 <div class="form-outline mb-4">
+                    <input type="text" id="Email" class="form-control text-black" @bind="student.Email" />
+                    <label class="form-label text-white" for="Email">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
                     <input type="password" id="Password" class="form-control text-black" @bind="student.Password" />
                     <label class="form-label text-white" for="Password">Password</label>
                 </div>
@@ -66,6 +71,9 @@
 
     private async Task HandleValidSubmit()
     {
+        // Trim email
+        student.Email = student.Email?.Trim();
+
         // Check if passwords match
         if (student.Password != confirmPassword)
         {
