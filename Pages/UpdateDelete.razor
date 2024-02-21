@@ -27,6 +27,16 @@
             <InputText id="School" class="form-control" @bind-Value="student.School" />
         </div>
 
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <InputText id="Email" class="form-control" @bind-Value="student.Email" />
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            <InputText id="Password" type="password" class="form-control" @bind-Value="student.Password" />
+        </div>
+
         <button type="submit" class="btn btn-primary">Update</button>
     </EditForm>
 
@@ -47,17 +57,18 @@ else if (student != null && Mode == "del")
         <p>First Name: @student.FirstName</p>
         <p>Last Name: @student.LastName</p>
         <p>School: @student.School</p>
+        <p>Email: @student.Email</p>
     </fieldset>
     <p>Delete Student with ID == @Id</p>
     <p>Are you sure?</p>
     <button type="button" class="btn btn-danger" @onclick="HandleDeleteStudent">Delete</button>
     @code {
-    private async Task HandleDeleteStudent()
-    {
-        await studentService.DeleteStudentAsync(student!.StudentId);
-        NavManager.NavigateTo("/students");
+        private async Task HandleDeleteStudent()
+        {
+            await studentService.DeleteStudentAsync(student!.StudentId);
+            NavManager.NavigateTo("/students");
+        }
     }
-}
 }
 else
 {
