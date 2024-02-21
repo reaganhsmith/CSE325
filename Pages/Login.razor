@@ -11,6 +11,12 @@
                 <div class="card p-4" style="background-color: #1c4160;">
                     <div class="card-body">
                         <h3 class="text-center mb-4 text-white">Login</h3>
+                        @if (showSignupSuccessMessage)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                Your signup was successful! Now login with your credentials.
+                            </div>
+                        }
                         <div class="form-group mb-4">
                             <label for="email" class="text-white">Email address</label>
                             <input type="email" id="email" class="form-control" @bind="email" />
@@ -47,8 +53,14 @@
     private string password = "";
     private bool showPassword;
     private string errorMessage = "";
+    private bool showSignupSuccessMessage;
 
     private string passwordInputType => showPassword ? "text" : "password";
+
+    protected override void OnInitialized()
+    {
+        showSignupSuccessMessage = NavManager.Uri.Contains("registered=true");
+    }
 
     private async Task HandleLogin()
     {
@@ -67,5 +79,5 @@
             errorMessage = "Invalid email or password. Please try again.";
         }
     }
-
 }
+a
