@@ -2,28 +2,33 @@
 @inject NavigationManager NavManager
 @inject ServerBlazorEF.Data.StudentService StudentService
 
-<link href="~/css/personalProfile.css" rel="stylesheet" />
-
-@if (student == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <div class="container">
-        <div class="personal-info">
-            <div class="profile-picture">
-                <img src="~/images/brentcross.jpg" alt="Student Picture">
+<div class="container mt-5">
+    @if (student == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="~/images/brentcross.jpg" alt="Student Picture" class="img-fluid rounded-circle">
+                    </div>
+                    <div class="col-md-8">
+                        <h2>@student.FirstName @student.LastName</h2>
+                        <p><strong>ID:</strong> @student.StudentId</p>
+                        <p><strong>Email:</strong> @student.Email</p>
+                        <p><strong>School:</strong> @student.School</p>
+                    </div>
+                </div>
             </div>
-            <h2>@student.FirstName @student.LastName</h2>
-            <p>ID: @student.StudentId</p>
-            <p>School: @student.School</p>
         </div>
-    </div>
-}
+    }
+</div>
 
 @code {
-    private ServerBlazorEF.Models.Student student;
+    private ServerBlazorEF.Models.Student? student;
 
     protected override async Task OnInitializedAsync()
     {
@@ -34,5 +39,4 @@ else
         // Fetch student information based on the logged-in user's email
         student = await StudentService.GetStudentByEmailAsync(email);
     }
-
 }
