@@ -48,6 +48,6 @@
     private async Task HandleValidSubmit()
     {
         await studentService.InsertStudentAsync(student);
-        NavManager.NavigateTo("/students");
+        NavManager.NavigateTo("/login?registered=true");
     }
 }
